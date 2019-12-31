@@ -20,10 +20,10 @@ def main(argv):
             ipRange = arg
 
     conf.verb = 0
-    ans, uans = srp(Ether(dst='FF:FF:FF:FF:FF:FF')/ARP(pdst=ipRange), timeout = 100, iface=interface, inter=0.1)
-    for snd, rcv in ans:
-        print(rcv.sprintf(r"%Ether.src% - %ARP.psrc%"))
+    ans, uans = srp(Ether(dst='FF:FF:FF:FF:FF:FF')/ARP(pdst=ipRange), timeout = 10, iface=interface)
 
+    for snd, rcv in ans:
+        macAddress = rcv.sprintf(r'%Ether.src%')
 
 if __name__ == "__main__":
     main(sys.argv[1:])
