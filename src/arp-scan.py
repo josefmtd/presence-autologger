@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import sys
-import argv
+import getopt
 
 from scapy.all import srp,Ether,ARP,conf
 
